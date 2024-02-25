@@ -18,7 +18,7 @@ server.use(express.json());
 
 server.use(express.urlencoded({ extended: false }));
 
-server.get("/test", async (req, res) => {
+server.get("/", async (req, res) => {
   const data = await urlModel.find({});
 
   res.render("home", { data: data });

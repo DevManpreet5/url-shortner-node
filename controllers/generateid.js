@@ -18,7 +18,7 @@ async function handlenewid(req, res) {
       redirectlink: content.url,
     });
     let data = await urlModel.find({});
-    res.status(201).redirect("/test");
+    res.status(201).redirect("/");
   }
 }
 
