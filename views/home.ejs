@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      method="POST"
+      action="/url"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <div
+        style="
+          width: 100vh;
+          display: flex;
+          gap: 30px;
+          justify-items: center;
+          align-items: center;
+          margin-bottom: 30px;
+        "
+      >
+        <input
+          type="text"
+          placeholder="enter link"
+          name="url"
+          style="width: 70%; text-align: center"
+        />
+        <button type="submit">Generate</button>
+      </div>
+    </form>
+    <table style="border: 1px solid; border-collapse: collapse">
+      <tr style="border: 1px solid">
+        <th style="border: 1px solid">Shortlink</th>
+        <th style="border: 1px solid">redirectlink</th>
+        <th style="border: 1px solid">count</th>
+      </tr>
+
+      <% data.forEach(element => { %>
+      <tr style="border: 1px solid">
+        <td style="border: 1px solid">
+          <%= ` http://localhost:8002/url/${ element.shortlink}` %>
+        </td>
+        <td style="border: 1px solid"><%= ` ${ element.redirectlink}` %></td>
+        <td style="border: 1px solid"><%= `${ element.history.length}` %></td>
+      </tr>
+
+      <% }) %>
+    </table>
+  </body>
+</html>
